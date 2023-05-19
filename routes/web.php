@@ -19,9 +19,7 @@ Route::get('/', function () {
     return view('welcome', ['title' => 'CodeIn']);
 });
 
-Route::get('home', function () {
-    return view('home');
-});
+
 
 Route::get('edulevels', [EdulevelController::class, 'data'])->name('edulevels.index');;
 Route::get('edulevels/add', [EdulevelController::class, 'add']);
@@ -34,3 +32,14 @@ Route::get('programs/trash', [ProgramController::class, 'trash']);
 Route::get('programs/restore/{id?}', [ProgramController::class, 'restore']);
 Route::get('programs/delete/{id?}', [ProgramController::class, 'delete']);
 Route::resource('programs', ProgramController::class);
+
+Route::get('/login', 'App\Http\Controllers\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'App\Http\Controllers\LoginController@login')->name('login.post');
+Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+
+Route::group(["middleware" => ["auth"]],function ()
+{
+    Route::get("/home", function (){
+        return view("home");
+    });
+});

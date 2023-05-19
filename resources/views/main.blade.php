@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title') - MyBimbel by YukCoding</title>
+    <title>@yield('title') - CodeIn</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -37,7 +37,7 @@
                 <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand" href="">CodeIn</a>
-            <a class="navbar-brand hidden" href="">M</a>
+            <a class="navbar-brand hidden" href="">C</a>
         </div>
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -99,7 +99,10 @@
                     </a>
                     <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-                        <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        <form method="post" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="btn btn-primary">Logout</button>
+                        </form>
                     </div>
                 </div>
 
@@ -123,17 +126,13 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </header><!-- /header -->
 
     @yield('breadcrumbs')
-
     @yield('content')
 
 </div>
-
 </body>
 </html>
