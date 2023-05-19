@@ -19,11 +19,9 @@ Route::get('/', function () {
     return view('welcome', ['title' => 'CodeIn']);
 });
 
-
-
 Route::get('edulevels', [EdulevelController::class, 'data'])->name('edulevels.index');;
 Route::get('edulevels/add', [EdulevelController::class, 'add']);
-Route::post('edulevels', [EdulevelController::class,'addProcess']);
+Route::post('edulevels', [EdulevelController::class, 'addProcess']);
 Route::get('edulevels/edit/{id}', [EdulevelController::class, 'edit']);
 Route::patch('edulevels/{id}', [EdulevelController::class, 'editProcess']);
 Route::delete('edulevels/{id}', [EdulevelController::class, 'delete']);
@@ -37,9 +35,11 @@ Route::get('/login', 'App\Http\Controllers\LoginController@showLoginForm')->name
 Route::post('/login', 'App\Http\Controllers\LoginController@login')->name('login.post');
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
-Route::group(["middleware" => ["auth"]],function ()
-{
-    Route::get("/home", function (){
+Route::get("/register", "App\Http\Controllers\Auth\RegisterController@create")->name("register");
+Route::post("/register", "App\Http\Controllers\Auth\RegisterController@store")->name("register");
+
+Route::group(["middleware" => ["auth"]], function () {
+    Route::get("/home", function () {
         return view("home");
     });
 });
