@@ -46,7 +46,7 @@
                             </div>
                             <div class="form-check row">
                                 <div class="col-md-6">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" onclick="hiddenPasswd()">
                                     <label class="form-check-label" for="exampleCheck1">Show Password</label>
                                 </div>
                             </div>
@@ -64,4 +64,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function hiddenPasswd() {
+            let pass = document.getElementById("password");
+            if (pass.type === "password") {
+                pass.type = "text"
+            } else {
+                pass.type = "password"
+            }
+        }
+    </script>
 @endsection

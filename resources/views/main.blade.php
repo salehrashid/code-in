@@ -97,11 +97,12 @@
                        aria-expanded="false">
                         <img class="user-avatar rounded-circle" src="{{ asset('style/images/admin.jpg') }}">
                     </a>
+                    <h1>sdsj</h1>
                     <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                        <button class="btn btn-primary rounded mb-3">Setting</button>
                         <form method="post" action="{{ route('logout') }}">
                             @csrf
-                            <button class="btn btn-primary">Logout</button>
+                            <button class="btn btn-primary rounded">Logout</button>
                         </form>
                     </div>
                 </div>
