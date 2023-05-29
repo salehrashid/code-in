@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Admin Register') }}</div>
+                    <div class="card-header">{{ __('Karywan Register') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             {{-- @csrf = untuk menghindari error client (419-page expired) --}}
@@ -39,6 +39,14 @@
                                     </span>
                                     @enderror
                                 </div>
+                            </div>
+
+                            <div class="row mb-3" style="display: none">
+                                <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
+
+                                <select name="role" id="role">
+                                    <option value="karyawan">Karyawan</option>
+                                </select>
                             </div>
 
                             <div class="row mb-3">

@@ -31,12 +31,27 @@ Route::get('programs/restore/{id?}', [ProgramController::class, 'restore']);
 Route::get('programs/delete/{id?}', [ProgramController::class, 'delete']);
 Route::resource('programs', ProgramController::class);
 
-Route::get('/login', 'App\Http\Controllers\LoginController@showLoginForm')->name('login');
-Route::post('/login', 'App\Http\Controllers\LoginController@login')->name('login.post');
-Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+//Admin Route
+Route::get('/panel/login', 'App\Http\Controllers\LoginController@showLoginForm')->name('login');
+Route::post('/panel/login', 'App\Http\Controllers\LoginController@login')->name('login.post');
+Route::post('/panel/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+Route::get("/panel/register", "App\Http\Controllers\Auth\RegisterController@create")->name("register");
+Route::post("/panel/register", "App\Http\Controllers\Auth\RegisterController@store")->name("register");
 
-Route::get("/register", "App\Http\Controllers\Auth\RegisterController@create")->name("register");
-Route::post("/register", "App\Http\Controllers\Auth\RegisterController@store")->name("register");
+//Karyawan Route
+Route::get('/karyawan/login', 'App\Http\Controllers\LoginKaryawanController@showLoginForm')->name('login');
+Route::post('/karyawan/login', 'App\Http\Controllers\LoginKaryawanController@login')->name('login.post');
+Route::post('/karyawan/logout', 'App\Http\Controllers\LoginKaryawanController@logout')->name('logout');
+Route::get("/karyawan/register", "App\Http\Controllers\Auth\RegisterKaryawanController@create")->name("register");
+Route::post("/karyawan/register", "App\Http\Controllers\Auth\RegisterKaryawanController@store")->name("register");
+
+Route::group(["middleware" => ["auth", "level.check:admin"]], function (){
+
+});
+
+Route::group(["middleware" => ["auth", "level.check:karyawan"]], function (){
+
+});
 
 Route::group(["middleware" => ["auth"]], function () {
     Route::get("/home", function () {

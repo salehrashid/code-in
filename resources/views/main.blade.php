@@ -46,7 +46,10 @@
                     <a href="{{ url('home') }}"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
                 </li>
                 <li>
-                    <a href="{{ url('edulevels') }}"> <i class='menu-icon bx bx-ruler'></i></i>Edu Level </a>
+                    @if(auth()->user()->role=="admin")
+                        <a href="{{ url('edulevels') }}"> <i class='menu-icon bx bx-ruler'></i></i>Edu Level </a>
+                    @else
+                    @endif
                 </li>
                 <li>
                     <a href="{{ url('programs') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Program </a>
@@ -97,7 +100,6 @@
                        aria-expanded="false">
                         <img class="user-avatar rounded-circle" src="{{ asset('style/images/admin.jpg') }}">
                     </a>
-                    <h1>sdsj</h1>
                     <div class="user-menu dropdown-menu">
                         <button class="btn btn-primary rounded mb-3">Setting</button>
                         <form method="post" action="{{ route('logout') }}">
