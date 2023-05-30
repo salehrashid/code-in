@@ -54,7 +54,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Jenjang</label>
+                                    <label>Kelas</label>
                                     <select name="edulevel_id"
                                             class="form-control @error('edulevel_id') is-invalid @enderror">
                                         <option value="">- Pilih -</option>

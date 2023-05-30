@@ -46,11 +46,15 @@ Route::get("/karyawan/register", "App\Http\Controllers\Auth\RegisterKaryawanCont
 Route::post("/karyawan/register", "App\Http\Controllers\Auth\RegisterKaryawanController@store")->name("register");
 
 Route::group(["middleware" => ["auth", "level.check:admin"]], function (){
-
+    Route::get("/home", function () {
+        return view("home");
+    });
 });
 
 Route::group(["middleware" => ["auth", "level.check:karyawan"]], function (){
-
+    Route::get("/home", function () {
+        return view("home");
+    });
 });
 
 Route::group(["middleware" => ["auth"]], function () {

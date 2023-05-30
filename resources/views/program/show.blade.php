@@ -52,11 +52,11 @@
                             <table class="table table-bordered">
                                 <tbody>
                                 <tr>
-                                    <th style="width:30%">Edulevel</th>
+                                    <th style="width:30%">Kelas</th>
                                     <td>{{ $program->edulevel->name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Program</th>
+                                    <th>Nama Kelas</th>
                                     <td>{{ $program->name }}</td>
                                 </tr>
                                 <tr>

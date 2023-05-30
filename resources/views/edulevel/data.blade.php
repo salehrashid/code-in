@@ -7,7 +7,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>EduLevel</h1>
+                    <h1>Kelas</h1>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="#">EduLevel</a></li>
+                        <li><a href="#">Kelas</a></li>
                         <li class="active">Data</li>
                     </ol>
                 </div>
@@ -35,7 +35,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="pull-left">
-                        <strong>Data Jenjang</strong>
+                        <strong>Data Kelas</strong>
                     </div>
                     <div class="pull-right">
                         <a href="{{ url('edulevels/add') }}" class="btn btn-success btn-sm">
@@ -48,7 +48,7 @@
                         <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Name</th>
+                            <th>Nama Kelas</th>
                             <th>Description</th>
                             <th></th>
                         </tr>

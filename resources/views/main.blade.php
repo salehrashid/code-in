@@ -43,16 +43,16 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{{ url('home') }}"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                    <a href="{{ url('home') }}"> <i class="menu-icon fa fa-dashboard"></i>Home</a>
                 </li>
                 <li>
                     @if(auth()->user()->role=="admin")
-                        <a href="{{ url('edulevels') }}"> <i class='menu-icon bx bx-ruler'></i></i>Edu Level </a>
+                        <a href="{{ url('edulevels') }}"> <i class='menu-icon bx bx-ruler'></i></i>Tambah Kelas</a>
                     @else
                     @endif
                 </li>
                 <li>
-                    <a href="{{ url('programs') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Program </a>
+                    <a href="{{ url('programs') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Program</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -98,7 +98,11 @@
                 <div class="user-area dropdown float-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="{{ asset('style/images/admin.jpg') }}">
+                        @if(auth()->user()->role=="admin")
+                            <img class="user-avatar rounded-circle" src="{{ asset('style/images/admin.jpg') }}">
+                        @else
+                            <img class="user-avatar rounded-circle" src="{{ asset('style/images/karyawan.jpg') }}">
+                        @endif
                     </a>
                     <div class="user-menu dropdown-menu">
                         <button class="btn btn-primary rounded mb-3">Setting</button>

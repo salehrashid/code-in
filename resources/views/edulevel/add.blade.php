@@ -7,7 +7,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>EduLevel</h1>
+                    <h1>Kelas</h1>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="#">EduLevel</a></li>
+                        <li><a href="#">Kelas</a></li>
                         <li class="active">Add</li>
                     </ol>
                 </div>
@@ -30,7 +30,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="pull-left">
-                        <strong>Tambah Jenjang</strong>
+                        <strong>Tambah Kelas</strong>
                     </div>
                     <div class="pull-right">
                         <a href="{{ url('edulevels') }}" class="btn btn-secondary btn-sm">
@@ -45,7 +45,7 @@
                             <form action="{{ url('edulevels') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Nama Jenjang</label>
+                                    <label>Nama Kelas</label>
                                     <input type="text" name="name"
                                            class="form-control @error('name') is-invalid @enderror"
                                            value="{{ old('name') }}" autofocus>

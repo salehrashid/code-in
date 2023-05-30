@@ -55,8 +55,8 @@
                         <thead>
                         <tr>
                             <th>No.</th>
-                            <th>EduLevel</th>
-                            <th>Nama Program</th>
+                            <th>Kelas</th>
+                            <th>Nama Kelas</th>
                             <th></th>
                         </tr>
                         </thead>
