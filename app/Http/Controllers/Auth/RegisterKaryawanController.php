@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
 class RegisterKaryawanController extends Controller
 {
+
+    use RegistersUsers;
+
     public function create()
     {
         return view("karyawan.register");
@@ -21,7 +25,7 @@ class RegisterKaryawanController extends Controller
             'password' => 'required'
         ]);
 
-        $user = User::create(request(['name', 'email', 'password']));
+        $user = User::create(request(['name', 'email', 'password', 'role']));
 
         auth()->login($user);
 
