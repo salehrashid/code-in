@@ -40,10 +40,10 @@
                     </div>
                     @if(auth()->user()->role=="admin")
                         <div class="pull-right">
-                            <a href="{{ url('programs/trash') }}" class="btn btn-danger btn-sm">
+                            <a href="{{ url('programs/trash') }}" class="btn btn-danger btn-sm rounded">
                                 <i class="fa fa-trash"></i> Trash
                             </a>
-                            <a href="{{ url('programs/create') }}" class="btn btn-success btn-sm">
+                            <a href="{{ url('programs/create') }}" class="btn btn-success btn-sm rounded">
                                 <i class="fa fa-plus"></i> Add
                             </a>
                         </div>
@@ -69,19 +69,19 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->teacher->name }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('programs/'.$item->id) }}" class="btn btn-warning btn-sm">
+                                    <a href="{{ url('programs/'.$item->id) }}" class="btn btn-warning btn-sm rounded">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     @if(auth()->user()->role=="admin")
                                         <a href="{{ url('programs/'.$item->id.'/edit') }}"
-                                           class="btn btn-primary btn-sm">
+                                           class="btn btn-primary btn-sm rounded">
                                             <i class="fa fa-pencil"></i>
                                         </a>
                                         <form action="{{ url('programs/'.$item->id) }}" method="post" class="d-inline"
                                               onsubmit="return confirm('Yakin hapus data?')">
                                             @method('delete')
                                             @csrf
-                                            <button class="btn btn-danger btn-sm">
+                                            <button class="btn btn-danger btn-sm rounded">
                                                 <i class="fa fa-close"></i>
                                             </button>
                                         </form>

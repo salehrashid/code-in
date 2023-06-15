@@ -39,13 +39,13 @@
                         <strong>Data Program Terhapus</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('programs/delete') }}" class="btn btn-danger btn-sm">
+                        <a href="{{ url('programs/delete') }}" class="btn btn-danger btn-sm rounded">
                             <i class="fa fa-trash"></i> Delete All
                         </a>
-                        <a href="{{ url('programs/restore') }}" class="btn btn-info btn-sm">
+                        <a href="{{ url('programs/restore') }}" class="btn btn-info btn-sm rounded">
                             <i class="fa fa-undo"></i> Restore All
                         </a>
-                        <a href="{{ url('programs') }}" class="btn btn-secondary btn-sm">
+                        <a href="{{ url('programs') }}" class="btn btn-secondary btn-sm rounded">
                             <i class="fa fa-chevron-left"></i> Back
                         </a>
                     </div>
@@ -70,10 +70,10 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->teacher->name }}</td>
                                     <td class="text-center">
-                                        <a href="{{ url('programs/restore/'.$item->id) }}" class="btn btn-info btn-sm">
+                                        <a href="{{ url('programs/restore/'.$item->id) }}" class="btn btn-info btn-sm rounded">
                                             Restore
                                         </a>
-                                        <a href="{{ url('programs/delete/'.$item->id) }}" class="btn btn-danger btn-sm"
+                                        <a href="{{ url('programs/delete/'.$item->id) }}" class="btn btn-danger btn-sm rounded"
                                            onclick="return confirm('Yakin hapus permanen?')">
                                             Delete Permanently
                                         </a>

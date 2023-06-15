@@ -33,7 +33,7 @@
                         <strong>Edit Program</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('programs') }}" class="btn btn-secondary btn-sm">
+                        <a href="{{ url('programs') }}" class="btn btn-secondary btn-sm rounded">
                             <i class="fa fa-undo"></i> Back
                         </a>
                     </div>
@@ -107,7 +107,7 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <button type="submit" class="btn btn-success">Save</button>
+                                <button type="submit" class="btn btn-success rounded">Save</button>
                             </form>
                         </div>
                     </div>

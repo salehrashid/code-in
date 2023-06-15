@@ -40,7 +40,7 @@
                         <strong>Detail Program</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('programs') }}" class="btn btn-secondary btn-sm">
+                        <a href="{{ url('programs') }}" class="btn btn-secondary btn-sm rounded">
                             <i class="fa fa-undo"></i> Back
                         </a>
                     </div>

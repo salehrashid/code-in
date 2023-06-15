@@ -38,7 +38,7 @@
                         <strong>Data Kelas</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('kelas/add') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('kelas/add') }}" class="btn btn-success btn-sm rounded">
                             <i class="fa fa-plus"></i> Add
                         </a>
                     </div>
@@ -60,14 +60,14 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->desc }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('kelas/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                    <a href="{{ url('kelas/edit/'.$item->id) }}" class="btn btn-primary btn-sm rounded">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <form action="{{ url('kelas/'.$item->id) }}" method="post" class="d-inline"
                                           onsubmit="return confirm('Yakin hapus data?')">
                                         @method('delete')
                                         @csrf
-                                        <button class="btn btn-danger btn-sm">
+                                        <button class="btn btn-danger btn-sm rounded">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
