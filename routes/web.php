@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EdulevelController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TeachersController;
 
@@ -20,12 +20,12 @@ Route::get('/', function () {
     return view('welcome', ['title' => 'CodeIn']);
 });
 
-Route::get('edulevels', [EdulevelController::class, 'data'])->name('edulevels.index');;
-Route::get('edulevels/add', [EdulevelController::class, 'add']);
-Route::post('edulevels', [EdulevelController::class, 'addProcess']);
-Route::get('edulevels/edit/{id}', [EdulevelController::class, 'edit']);
-Route::patch('edulevels/{id}', [EdulevelController::class, 'editProcess']);
-Route::delete('edulevels/{id}', [EdulevelController::class, 'delete']);
+Route::get('kelas', [KelasController::class, 'data'])->name('kelas.index');;
+Route::get('kelas/add', [KelasController::class, 'add']);
+Route::post('kelas', [KelasController::class, 'addProcess']);
+Route::get('kelas/edit/{id}', [KelasController::class, 'edit']);
+Route::patch('kelas/{id}', [KelasController::class, 'editProcess']);
+Route::delete('kelas/{id}', [KelasController::class, 'delete']);
 
 Route::get('/teachers', [TeachersController::class, 'data'])->name("teachers.index");
 Route::get("/teachers/add", [TeachersController::class, "add"]);

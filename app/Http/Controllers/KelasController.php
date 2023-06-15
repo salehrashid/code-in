@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class EdulevelController extends Controller
+class KelasController extends Controller
 {
 
     public function data()
     {
-        $edulevels = DB::table('edulevels')->simplePaginate(5);
-        return view('edulevel.data')->with('edulevels', $edulevels);
+        $kelas = DB::table('kelas')->simplePaginate(5);
+        return view('kelas.data')->with('kelas', $kelas);
     }
 
     public function add()
     {
-        return view('edulevel.add');
+        return view('kelas.add');
     }
 
     public function addProcess(Request $request)
@@ -25,20 +25,20 @@ class EdulevelController extends Controller
             'name' => 'required|min:2',
             'desc' => 'required',
         ], [
-            'name.required' => 'Nama jenjang tidak boleh kosong'
+            'name.required' => 'Nama kelas tidak boleh kosong'
         ]);
 
-        DB::table('edulevels')->insert([
+        DB::table('kelas')->insert([
             'name' => $request->name,
             'desc' => $request->desc
         ]);
-        return redirect('edulevels')->with('status', 'Kelas berhasil ditambah!');
+        return redirect('kelas')->with('status', 'Kelas berhasil ditambah!');
     }
 
     public function edit($id)
     {
-        $edulevel = DB::table('edulevels')->where('id', $id)->first();
-        return view('edulevel/edit', compact('edulevel'));
+        $kelas = DB::table('kelas')->where('id', $id)->first();
+        return view('kelas/edit', compact('kelas'));
     }
 
     public function editProcess(Request $request, $id)
@@ -48,17 +48,17 @@ class EdulevelController extends Controller
             'desc' => 'required',
         ]);
 
-        DB::table('edulevels')->where('id', $id)
+        DB::table('kelas')->where('id', $id)
             ->update([
                 'name' => $request->name,
                 'desc' => $request->desc
             ]);
-        return redirect('edulevels')->with('status', 'Kelas berhasil diupdate!');
+        return redirect('kelas')->with('status', 'Kelas berhasil diupdate!');
     }
 
     public function delete($id)
     {
-        DB::table('edulevels')->where('id', $id)->delete();
-        return redirect('edulevels')->with('status', 'Kelas berhasil dihapus!');
+        DB::table('kelas')->where('id', $id)->delete();
+        return redirect('kelas')->with('status', 'Kelas berhasil dihapus!');
     }
 }

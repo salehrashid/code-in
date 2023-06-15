@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'EduLevel')
+@section('title', 'Kelas')
 
 @section('breadcrumbs')
     <div class="breadcrumbs">
@@ -33,7 +33,7 @@
                         <strong>Tambah Kelas</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('edulevels') }}" class="btn btn-secondary btn-sm">
+                        <a href="{{ url('kelas') }}" class="btn btn-secondary btn-sm">
                             <i class="fa fa-undo"></i> Back
                         </a>
                     </div>
@@ -42,10 +42,10 @@
 
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <form action="{{ url('edulevels') }}" method="post">
+                            <form action="{{ url('kelas') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Nama Kelas</label>
+                                    <label>Kelas</label>
                                     <input type="text" name="name"
                                            class="form-control @error('name') is-invalid @enderror"
                                            value="{{ old('name') }}" autofocus>

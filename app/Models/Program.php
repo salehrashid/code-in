@@ -14,9 +14,9 @@ class Program extends Model
     protected $guarded = [];
     protected $hidden = ['created_at', 'updated_at'];
 
-    public function edulevel()
+    public function kelas()
     {
-        return $this->belongsTo('App\Models\Edulevel');
+        return $this->belongsTo('App\Models\Kelas', 'fk_kelas', 'id');
     }
 
     public function teacher(){

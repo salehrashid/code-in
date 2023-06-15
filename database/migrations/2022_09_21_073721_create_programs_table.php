@@ -16,7 +16,7 @@ class CreateProgramsTable extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("fk_teachers")->unsigned();
-            $table->foreignId('edulevel_id')->constrained('edulevels')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('fk_kelas')->constrained('kelas')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign("fk_teachers")->references("id")->on("teachers")->onDelete('cascade')->onUpdate('cascade');
             $table->string('name', 100);
             $table->integer('student_price')->nullable();

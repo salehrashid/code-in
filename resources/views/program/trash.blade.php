@@ -66,7 +66,7 @@
                             @foreach ($programs as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->edulevel->name }}</td>
+                                    <td>{{ $item->kelas->name }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->teacher->name }}</td>
                                     <td class="text-center">

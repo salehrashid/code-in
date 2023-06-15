@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'EduLevel')
+@section('title', 'Kelas')
 
 @section('breadcrumbs')
     <div class="breadcrumbs">
@@ -38,7 +38,7 @@
                         <strong>Data Kelas</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('edulevels/add') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('kelas/add') }}" class="btn btn-success btn-sm">
                             <i class="fa fa-plus"></i> Add
                         </a>
                     </div>
@@ -54,16 +54,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($edulevels as $key => $item)
+                        @foreach ($kelas as $key => $item)
                             <tr>
-                                <td>{{ $edulevels->firstItem() + $key }}</td>
+                                <td>{{ $kelas->firstItem() + $key }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->desc }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('edulevels/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                    <a href="{{ url('kelas/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <form action="{{ url('edulevels/'.$item->id) }}" method="post" class="d-inline"
+                                    <form action="{{ url('kelas/'.$item->id) }}" method="post" class="d-inline"
                                           onsubmit="return confirm('Yakin hapus data?')">
                                         @method('delete')
                                         @csrf
@@ -77,7 +77,7 @@
                         </tbody>
                     </table>
                     <div class="pull-right">
-                        {{ $edulevels->links() }}
+                        {{ $kelas->links() }}
                     </div>
                 </div>
             </div>

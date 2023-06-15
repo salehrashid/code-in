@@ -65,7 +65,7 @@
                         @foreach ($programs as $key => $item)
                             <tr>
                                 <td>{{ $programs->firstItem() + $key }}</td>
-                                <td>{{ $item->edulevel->name }}</td>
+                                <td>{{ $item->kelas->name }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->teacher->name }}</td>
                                 <td class="text-center">

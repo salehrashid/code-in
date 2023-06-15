@@ -3,51 +3,55 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
-use App\Models\Edulevel;
+use App\Models\Kelas;
 use App\Models\Teachers;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class ProgramController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-        $programs = Program::with('edulevel')->paginate(10);
-//        $teachers = Teachers::with('teachers')->paginate(10);
+        $programs = Program::with('kelas')->paginate(10);
         return view('program/index', compact('programs'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
-        $edulevels = Edulevel::all();
+        $kelas = Kelas::all();
         $namaGuru = Teachers::all();
-        return view('program.create', compact('edulevels', 'namaGuru'));
+        return view('program.create', compact('kelas', 'namaGuru'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|Redirector|RedirectResponse
      */
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|min:3',
-            'edulevel_id' => 'required',
+            'fk_kelas' => 'required',
             'fk_teachers' => 'required'
         ], [
             'fk_teachers.required' => 'Nama guru diperlukan',
-            'edulevel_id.required' => 'Nama kelas diperlukan'
+            'fk_kelas.required' => 'Nama kelas diperlukan'
         ]);
         Program::create($request->all());
         return redirect('programs')->with('status', 'Program berhasil ditambah!');
@@ -56,49 +60,49 @@ class ProgramController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Program $program
-     * @return \Illuminate\Http\Response
+     * @param Program $program
+     * @return Application|Factory|View
      */
     public function show(Program $program)
     {
-        $program->makeHidden(['edulevel_id']);
+        $program->makeHidden(['kelas']);
         return view('program/show', compact('program'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Program $program
-     * @return \Illuminate\Http\Response
+     * @param Program $program
+     * @return Application|Factory|View
      */
     public function edit(Program $program)
     {
-        $edulevels = Edulevel::all();
+        $kelas = Kelas::all();
         $namaGuru = Teachers::all();
-        return view('program.edit', compact('program', 'edulevels', 'namaGuru'));
+        return view('program.edit', compact('program', 'kelas', 'namaGuru'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Program $program
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Program $program
+     * @return Application|Redirector|RedirectResponse
      */
     public function update(Request $request, Program $program)
     {
         $request->validate([
             'name' => 'required|min:3',
-            'edulevel_id' => 'required',
+            'fk_kelas' => 'required',
             'fk_teachers' => 'required'
         ], [
             'fk_teachers.required' => 'Nama guru diperlukan',
-            'edulevel_id.required' => 'Nama kelas diperlukan'
+            'fk_kelas.required' => 'Nama kelas diperlukan'
         ]);
         Program::where('id', $program->id)
             ->update([
                 'name' => $request->name,
-                'edulevel_id' => $request->edulevel_id,
+                'fk_kelas' => $request->fk_kelas,
                 'fk_teachers' => $request->fk_teachers,
                 'student_price' => $request->student_price,
                 'student_max' => $request->student_max,
@@ -111,8 +115,8 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Program $program
-     * @return \Illuminate\Http\Response
+     * @param Program $program
+     * @return Application|RedirectResponse|Redirector
      */
     public function destroy(Program $program)
     {

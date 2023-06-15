@@ -53,7 +53,7 @@
                                 <tbody>
                                 <tr>
                                     <th style="width:30%">Kelas</th>
-                                    <td>{{ $program->edulevel->name }}</td>
+                                    <td>{{ $program->kelas->name }}</td>
                                 </tr>
                                 <tr>
                                     <th>Nama Kelas</th>

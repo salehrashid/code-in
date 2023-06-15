@@ -47,7 +47,7 @@
                 </li>
                 <li>
                     @if(auth()->user()->role=="admin")
-                        <a href="{{ url('edulevels') }}"> <i class='menu-icon bx bx-ruler'></i></i>Tambah Kelas</a>
+                        <a href="{{ url('kelas') }}"> <i class='menu-icon bx bx-ruler'></i></i>Tambah Kelas</a>
                     @else
                     @endif
                 </li>

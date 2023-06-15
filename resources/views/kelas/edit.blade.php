@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'EduLevel')
+@section('title', 'Kelas')
 
 @section('breadcrumbs')
     <div class="breadcrumbs">
@@ -33,7 +33,7 @@
                         <strong>Edit Kelas</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('edulevels') }}" class="btn btn-secondary btn-sm">
+                        <a href="{{ url('kelas') }}" class="btn btn-secondary btn-sm">
                             <i class="fa fa-undo"></i> Back
                         </a>
                     </div>
@@ -41,14 +41,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <form action="{{ url('edulevels/'.$edulevel->id) }}" method="post">
+                            <form action="{{ url('kelas/'.$kelas->id) }}" method="post">
                                 @method('patch')
                                 @csrf
                                 <div class="form-group">
                                     <label>Nama Kelas</label>
                                     <input type="text" name="name"
                                            class="form-control @error('name') is-invalid @enderror"
-                                           value="{{ old('name', $edulevel->name) }}">
+                                           value="{{ old('name', $kelas->name) }}">
                                     @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     <label>Keterangan</label>
                                     <textarea name="desc"
-                                              class="form-control @error('desc') is-invalid @enderror">{{ old('desc', $edulevel->desc) }}</textarea>
+                                              class="form-control @error('desc') is-invalid @enderror">{{ old('desc', $kelas->desc) }}</textarea>
                                     @error('desc')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror

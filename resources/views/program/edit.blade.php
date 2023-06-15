@@ -55,15 +55,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kelas</label>
-                                    <select name="edulevel_id"
-                                            class="form-control @error('edulevel_id') is-invalid @enderror">
+                                    <select name="fk_kelas"
+                                            class="form-control @error('fk_kelas') is-invalid @enderror">
                                         <option value="">- Pilih -</option>
-                                        @foreach ($edulevels as $item)
+                                        @foreach ($kelas as $item)
                                             <option
-                                                value="{{ $item->id }}" {{ old('edulevel_id', $program->edulevel_id) == $item->id ? 'selected' : null }}>{{ $item->name }}</option>
+                                                value="{{ $item->id }}" {{ old('fk_kelas', $program->fk_kelas) == $item->id ? 'selected' : null }}>{{ $item->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('edulevel_id')
+                                    @error('fk_kelas')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
