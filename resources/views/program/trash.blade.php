@@ -57,6 +57,7 @@
                             <th>No.</th>
                             <th>Kelas</th>
                             <th>Nama Kelas</th>
+                            <th>Nama Guru</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -67,6 +68,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->edulevel->name }}</td>
                                     <td>{{ $item->name }}</td>
+                                    <td>{{ $item->teacher->name }}</td>
                                     <td class="text-center">
                                         <a href="{{ url('programs/restore/'.$item->id) }}" class="btn btn-info btn-sm">
                                             Restore

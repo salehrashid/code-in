@@ -7,15 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class EdulevelController extends Controller
 {
-    
+
     public function data()
     {
         $edulevels = DB::table('edulevels')->simplePaginate(5);
-
-        // dd($edulevels);
-        // return $edulevels;
-        // return view('edulevel.data', ['edulevels' => $edulevels]);
-        // return view('edulevel.data', compact('edulevels'));
         return view('edulevel.data')->with('edulevels', $edulevels);
     }
 
@@ -37,7 +32,7 @@ class EdulevelController extends Controller
             'name' => $request->name,
             'desc' => $request->desc
         ]);
-        return redirect('edulevels')->with('status', 'Jenjang berhasil ditambah!');
+        return redirect('edulevels')->with('status', 'Kelas berhasil ditambah!');
     }
 
     public function edit($id)
@@ -58,13 +53,12 @@ class EdulevelController extends Controller
                 'name' => $request->name,
                 'desc' => $request->desc
             ]);
-        return redirect('edulevels')->with('status', 'Jenjang berhasil diupdate!');
+        return redirect('edulevels')->with('status', 'Kelas berhasil diupdate!');
     }
 
     public function delete($id)
     {
         DB::table('edulevels')->where('id', $id)->delete();
-        return redirect('edulevels')->with('status', 'Jenjang berhasil dihapus!');
+        return redirect('edulevels')->with('status', 'Kelas berhasil dihapus!');
     }
-
 }

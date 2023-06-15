@@ -52,8 +52,14 @@
                     @endif
                 </li>
                 <li>
-                    <a href="{{ url('programs') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Program</a>
+                    <a href="{{ url('programs') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Tambah Program</a>
                 </li>
+                @if(auth()->user()->role=="admin")
+                    <li>
+                        <a href="{{ url('teachers') }}"> <i class="menu-icon fa fa-male"></i>Tambah Guru</a>
+                    </li>
+                @else
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

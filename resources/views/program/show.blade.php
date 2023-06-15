@@ -60,7 +60,11 @@
                                     <td>{{ $program->name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Student Price</th>
+                                    <th>Nama Guru</th>
+                                    <td>{{ $program->teacher->name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Course Price</th>
                                     <td>Rp {{ number_format($program->student_price, 0, ',', '.') }}</td>
                                 </tr>
                                 <tr>

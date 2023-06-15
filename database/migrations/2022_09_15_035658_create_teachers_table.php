@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('edulevels', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->text('desc')->nullable();
+            $table->string("name", 255);
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('edulevels');
+        Schema::dropIfExists('teachers_migration');
     }
 };

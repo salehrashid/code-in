@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EdulevelController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\TeachersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,13 @@ Route::post('edulevels', [EdulevelController::class, 'addProcess']);
 Route::get('edulevels/edit/{id}', [EdulevelController::class, 'edit']);
 Route::patch('edulevels/{id}', [EdulevelController::class, 'editProcess']);
 Route::delete('edulevels/{id}', [EdulevelController::class, 'delete']);
+
+Route::get('/teachers', [TeachersController::class, 'data'])->name("teachers.index");
+Route::get("/teachers/add", [TeachersController::class, "add"]);
+Route::post("/teachers", [TeachersController::class, 'addProcess']);
+Route::get("/teachers/edit/{id}", [TeachersController::class, 'edit']);
+Route::patch("/teachers/{id}", [TeachersController::class, 'editProcess']);
+Route::delete("/teachers/{id}", [TeachersController::class, 'delete']);
 
 Route::get('programs/trash', [ProgramController::class, 'trash']);
 Route::get('programs/restore/{id?}', [ProgramController::class, 'restore']);

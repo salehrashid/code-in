@@ -10,14 +10,16 @@ class Program extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
-    // protected $fillable = ['name', 'edulevel_id'];
-    protected $guarded = [];
 
+    protected $guarded = [];
     protected $hidden = ['created_at', 'updated_at'];
-    
+
     public function edulevel()
     {
         return $this->belongsTo('App\Models\Edulevel');
+    }
+
+    public function teacher(){
+        return $this->belongsTo("App\Models\Teachers", 'fk_teachers', 'id');
     }
 }

@@ -54,7 +54,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Jenjang</label>
+                                    <label>Kelas</label>
                                     <select name="edulevel_id"
                                             class="form-control @error('edulevel_id') is-invalid @enderror">
                                         <option value="">- Pilih -</option>
@@ -64,6 +64,20 @@
                                         @endforeach
                                     </select>
                                     @error('edulevel_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Guru</label>
+                                    <select name="fk_teachers"
+                                            class="form-control @error('fk_teachers') is-invalid @enderror">
+                                        <option value="">- Pilih -</option>
+                                        @foreach ($namaGuru as $item)
+                                            <option
+                                                value="{{ $item->id }}" {{ old('fk_teachers') == $item->fk_teachers ? 'selected' : null }}>{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('fk_teachers')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
